@@ -9,9 +9,9 @@ Dataset: [Board Game Database from BoardGameGeek](https://www.kaggle.com/dataset
 
 | Member | Contribution |
 |---|---|
-| Yun Ei Hlaing | EDA, Preprocessing pipeline, Heterogeneous GNN variant |
-| Nhi Nguyen | BPR-MF baseline, LightGCN variant |
-| Uday Arora | Popularity baseline, LLM-hybrid variant |
+| Yun Ei Hlaing | EDA, Data Cleaning, Item-based CF, DeepFM variant |
+| Nhi Nguyen | SVD baseline, BPR-MF baseline (replaced) | LightGCN variant |
+| Uday Arora | Preprocessing pipeline, Popularity baseline, LLM-hybrid variant |
 
 ---
 
@@ -54,6 +54,7 @@ Preprocessing steps applied: dropped null usernames, dropped high-missing column
 |---|---|---|---|---|
 | Popularity | Bayesian average ranking | 0.1833 | 0.0946 | 0.0679 |
 | SVD | Matrix Factorization | 0.1920 | 0.1034 | 0.0766 |
+| Item-based CF | Cosine Similarity | 0.2446 | 0.1749 | 0.1524 | 
 
 ---
 
@@ -62,7 +63,7 @@ Preprocessing steps applied: dropped null usernames, dropped high-missing column
 | Variant | Approach |
 |---|---|
 | LightGCN | Homogeneous GNN over user-item interaction graph |
-| Heterogeneous GNN | Multi-relational graph incorporating mechanic and theme nodes |
+| DeepFM | Factorization Machine with deep MLP | 
 | LLM-hybrid | Sentence transformer embeddings combined with collaborative filtering scores |
 
 ---
