@@ -29,6 +29,9 @@ Download the raw dataset from Kaggle and place CSVs under `dataset/`. Run this n
 **2. Any baseline or variant notebook**
 Each notebook is self-contained and can be run independently. At the top of every notebook the processed dataset is downloaded automatically from the shared Drive link into `dataset/processed/`. No other setup is needed.
 
+**3. LLM-Hybrid variant only**
+Requires SVD latent factor matrices in addition to the processed dataset. SVD matrices (~50MB): [Google Drive](https://drive.google.com/file/d/1N_U-IF-HAovnIWO62iPcIKzBsYNjguxd/view?usp=sharing) — downloaded automatically at the top of the LLM-Hybrid notebook.
+
 ---
 
 ## Shared Pipeline
@@ -48,29 +51,37 @@ Preprocessing steps applied: dropped null usernames, dropped high-missing column
 
 ---
 
-## Baselines
+## Models
 
-| Baseline | Method | HR@10  | NDCG@10 | MRR@10 |
-|---|---|--------|---|-------|
-| Popularity | Bayesian average ranking | 0.1831 | 0.0946 | 0.068 |
-| SVD | Matrix Factorization | 0.2021 | 0.1089 | 0.0808 |
-| Item-based CF | Cosine Similarity | 0.2446 | 0.1749 | 0.1524 | 
+| Model | Type | Approach |
+|---|---|---|
+| Popularity | Baseline | Bayesian average ranking |
+| SVD | Baseline | Matrix factorization with mean-centered ratings |
+| Item-based CF | Baseline | Cosine similarity over user-item interaction matrix |
+| LightGCN | Variant — Nhi Nguyen | Homogeneous GNN over user-item interaction graph |
+| DeepFM | Variant — Yun Ei Hlaing | Factorization machine with deep MLP |
+| LLM-Hybrid | Variant — Uday Arora | Sentence transformer embeddings combined with SVD collaborative filtering scores |
 
 ---
 
-## Variants
+## Results
 
-| Variant | Approach |
-|---|---|
-| LightGCN | Homogeneous GNN over user-item interaction graph |
-| DeepFM | Factorization Machine with deep MLP | 
-| LLM-hybrid | Sentence transformer embeddings combined with collaborative filtering scores |
+| Model | HR@10 | NDCG@10 | MRR@10 |
+|---|---|---|---|
+| Popularity | 0.1831 | 0.0946 | 0.0680 |
+| SVD | 0.2021 | 0.1089 | 0.0808 |
+| Item-based CF | 0.2446 | 0.1749 | 0.1524 |
+| LightGCN | TBD | TBD | TBD |
+| DeepFM | TBD | TBD | TBD |
+| LLM-Hybrid | 0.2401 | 0.1259 | 0.0915 |
 
 ---
 
 ## Evaluation
 
 All models evaluated using the shared `evaluate()` function defined in `reference_setup_notebook.ipynb`. Protocol: leave-one-out, 99 sampled negatives per test user, metrics reported at K=10.
+
+K=10 was chosen as a realistic recommendation list size given users have rated 46 games on average, and is consistent with standard evaluation practice in recommender systems literature.
 
 | Metric | Description |
 |---|---|
