@@ -53,7 +53,7 @@ Preprocessing steps applied: dropped null usernames, dropped high-missing column
 | Baseline | Method | HR@10  | NDCG@10 | MRR@10 |
 |---|---|--------|---|-------|
 | Popularity | Bayesian average ranking | 0.1831 | 0.0946 | 0.068 |
-| SVD | Matrix Factorization | 0.1920 | 0.1034 | 0.0766 |
+| SVD | Matrix Factorization | 0.2021 | 0.1089 | 0.0808 |
 | Item-based CF | Cosine Similarity | 0.2446 | 0.1749 | 0.1524 | 
 
 ---
