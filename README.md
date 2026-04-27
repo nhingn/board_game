@@ -70,7 +70,7 @@ Preprocessing steps applied: dropped null usernames, dropped high-missing column
 |---|---|---|---|
 | Popularity | 0.1831 | 0.0946 | 0.0680 |
 | SVD | 0.2021 | 0.1089 | 0.0808 |
-| Item-based CF | 0.2446 | 0.1749 | 0.1524 |
+| Item-based CF | 0.2445 | 0.1748 | 0.1522 |
 | LightGCN | TBD | TBD | TBD |
 | DeepFM | TBD | TBD | TBD |
 | LLM-Hybrid | 0.2401 | 0.1259 | 0.0915 |
