@@ -7,13 +7,11 @@ Dataset: [Board Game Database from BoardGameGeek](https://www.kaggle.com/dataset
 
 ## Team
 
-| Member | Contribution |
-|---|---|
-| Yun Ei Hlaing | EDA, data cleaning, Item-based CF baseline, DeepFM variant |
-| Nhi Nguyen | SVD baseline, LightGCN variant |
-| Uday Arora | Preprocessing pipeline (filtering, ID remapping, train/val/test split), Popularity baseline, LLM-hybrid variant |
-
----
+| Member | Contribution                                                              |
+|---|---------------------------------------------------------------------------|
+| Yun Ei Hlaing | EDA, data cleaning, Item-based CF baseline, DeepFM variant             |
+| Nhi Nguyen | SVD baseline, LightGCN variant                                            |
+| Uday Arora | Preprocessing pipeline, Popularity baseline, LLM-hybrid variant |
 
 ## Dataset
 
